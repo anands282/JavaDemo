@@ -6,8 +6,7 @@ public class Main {
 //        obj.checkNumber(0);
 //        obj.checkNumber(-2);
 //        obj.checkNumber(10);
+        NumberPalindrome.isPalindrome(-222);
 
-        SpeedConverter obj = new SpeedConverter();
-        obj.printConversion(10.25);
     }
 }
