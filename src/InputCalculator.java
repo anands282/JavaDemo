@@ -2,24 +2,30 @@ import java.util.Scanner;
 
 public class InputCalculator {
 
-    public static void inputThenPrintSumAndAverage(){
-        Scanner scanner = new Scanner(System.in);
-        int sum =0;
-        int average =0;
-        int counter = 0;
-        while(true){
-            String strNum = scanner.nextLine();
-            try{
-                int num = Integer.parseInt(strNum);
-                counter++;
-                sum += num;
-                average = (int)(sum/counter);
-            }
-            catch(NumberFormatException nfe){
-                System.out.println("SUM = "+ sum + " AVG = " + average);
-            }
+    public static void inputThenPrintSumAndAverage() {
 
+        Scanner scanner = new Scanner(System.in);
+        int sum = 0;
+        int count = 0;
+        long avg = 0;
+
+        while (true) {
+            boolean hasNextInt = scanner.hasNextInt();
+            if (!hasNextInt) {
+                // break the loop on invalid input
+                break;
+            }
+            sum += scanner.nextInt();
+            count++;
+            // clear buffer e.g. remove line separator
+            scanner.nextLine();
         }
 
+        if (count > 0) {
+            avg = Math.round((double) sum / count);
+        }
+
+        System.out.println("SUM = " + sum + " AVG = " + avg);
+        scanner.close();
     }
 }
